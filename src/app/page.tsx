@@ -1,65 +1,134 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { ArrowRightIcon } from 'lucide-react'
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-[#f3f2ef]">
+      {/* Navbar */}
+      <header className="bg-white border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+          {/* LinkedIn Logo */}
+          <div className="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 21" className="h-8 w-auto" fill="#0a66c2">
+              <g>
+                <path d="M12.5 2.75a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zM8.25 6.5H12v13H8.25V6.5zM14.75 6.5h3.6v1.77h.05c.5-.95 1.73-1.95 3.56-1.95 3.8 0 4.5 2.5 4.5 5.75V19.5H22.7v-6.62c0-1.58-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V19.5h-3.21V6.5z" />
+                <text x="30" y="16" fontSize="16" fontWeight="700" fill="#0a66c2" fontFamily="Arial, sans-serif">LinkedIn</text>
+              </g>
+            </svg>
+          </div>
+          <div className="flex items-center gap-3">
+            <Link href="/login">
+              <Button variant="ghost" size="sm" className="text-slate-700 font-semibold">
+                Sign in
+              </Button>
+            </Link>
+            <Link href="/signup">
+              <Button size="sm" className="bg-[#0a66c2] hover:bg-[#004182] text-white font-semibold rounded-full px-5">
+                Join now
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      {/* Hero Section — LinkedIn style */}
+      <main className="max-w-6xl mx-auto px-4 pt-12 pb-20">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Left: Text */}
+          <div>
+            <h1 className="text-4xl sm:text-5xl font-light text-[#8f5849] leading-tight mb-6" style={{ fontFamily: 'Georgia, serif' }}>
+              Welcome to your professional community
+            </h1>
+            <div className="space-y-3">
+              <Link href="/signup" className="block">
+                <Button className="w-full sm:w-auto bg-[#0a66c2] hover:bg-[#004182] text-white font-semibold rounded-full h-12 px-8 text-base">
+                  Join now
+                </Button>
+              </Link>
+              <div className="flex items-center gap-3">
+                <div className="h-px bg-slate-300 flex-1" />
+                <span className="text-sm text-slate-500">or</span>
+                <div className="h-px bg-slate-300 flex-1" />
+              </div>
+              <Link href="/login" className="block">
+                <Button
+                  variant="outline"
+                  className="w-full sm:w-auto border-[#0a66c2] text-[#0a66c2] hover:bg-blue-50 font-semibold rounded-full h-12 px-8 text-base"
+                >
+                  Sign in
+                  <ArrowRightIcon className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right: Illustration */}
+          <div className="hidden md:flex justify-center">
+            <div className="relative w-full max-w-md aspect-square">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#dce6f1] to-[#b3cde0] rounded-2xl flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    {[
+                      { icon: '👩‍💼', label: 'Professionals' },
+                      { icon: '🏢', label: 'Companies' },
+                      { icon: '💼', label: 'Jobs' },
+                    ].map((item) => (
+                      <div key={item.label} className="bg-white rounded-xl p-4 shadow-sm flex flex-col items-center gap-2">
+                        <span className="text-2xl">{item.icon}</span>
+                        <span className="text-xs font-medium text-slate-600">{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="bg-white rounded-xl p-4 shadow-sm">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-10 h-10 bg-[#0a66c2] rounded-full flex items-center justify-center text-white font-bold">J</div>
+                      <div className="text-left">
+                        <p className="text-sm font-semibold text-slate-900">John Doe</p>
+                        <p className="text-xs text-slate-500">Software Engineer at Google</p>
+                      </div>
+                    </div>
+                    <div className="text-xs text-[#0a66c2] font-semibold">+ Connect</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom links */}
+        <div className="mt-16 text-center">
+          <p className="text-sm text-slate-500 mb-4">Explore more</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            {['Find a job', 'Find a person', 'Learn a skill', 'Post a job'].map((item) => (
+              <Link
+                key={item}
+                href="/signup"
+                className="text-sm text-slate-600 hover:text-[#0a66c2] hover:underline font-medium"
+              >
+                {item} →
+              </Link>
+            ))}
+          </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="border-t border-slate-200 bg-white py-8">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4">
+            {['About', 'Accessibility', 'Help Center', 'Privacy & Terms', 'Ad Choices', 'Advertising', 'Business Services', 'Get the LinkedIn app'].map((item) => (
+              <a key={item} href="#" className="text-xs text-slate-500 hover:text-[#0a66c2] hover:underline">
+                {item}
+              </a>
+            ))}
+          </div>
+          <div className="flex justify-center items-center gap-1">
+            <span className="text-[#0a66c2] font-bold text-sm">LinkedIn</span>
+            <span className="text-xs text-slate-400">© {new Date().getFullYear()}</span>
+          </div>
+        </div>
+      </footer>
     </div>
-  );
+  )
 }
