@@ -69,6 +69,27 @@ export interface Database {
                 Row: Notification
                 Insert: Omit<Notification, 'id' | 'created_at'>
                 Update: Partial<Notification>
+            },
+            saved_jobs: {
+                Row: SavedJob
+                Insert: SavedJob
+                Update: never
+            },
+            job_skills: {
+                Row: JobSkill
+                Insert: JobSkill
+                Update: never
+            }
+        },
+        Views: {
+            admin_stats: {
+                Row: AdminStats
+            }
+            daily_signups: {
+                Row: DailyCount
+            }
+            daily_posts: {
+                Row: DailyCount
             }
         }
     }
@@ -266,6 +287,26 @@ export interface Notification {
     resource_type: string | null
     is_read: boolean
     created_at: string
+}
+
+export interface JobSkill {
+    job_id: string
+    skill_id: string
+}
+
+export interface AdminStats {
+    total_users: number | null
+    total_posts: number | null
+    total_jobs: number | null
+    total_applications: number | null
+    total_companies: number | null
+    new_users_today: number | null
+    new_posts_today: number | null
+}
+
+export interface DailyCount {
+    date: string
+    count: number
 }
 
 export interface AdminLog {

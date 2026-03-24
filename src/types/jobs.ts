@@ -14,7 +14,7 @@ export interface ApplicationWithDetails extends Application {
 }
 
 export interface ApplicantWithProfile extends Application {
-  applicant: Pick
+  applicant: Pick<
     Profile,
     'id' | 'full_name' | 'avatar_url' | 'headline' | 'username' | 'resume_url'
   >

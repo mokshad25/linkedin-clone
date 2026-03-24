@@ -19,7 +19,7 @@ export default async function AdminLayout({
     .eq('user_id', user.id)
     .single()
 
-  if (roleData?.role !== 'admin') redirect('/feed')
+  if ((roleData as { role: string } | null)?.role !== 'admin') redirect('/feed')
 
   return (
     <AuthProvider>

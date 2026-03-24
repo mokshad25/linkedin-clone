@@ -11,7 +11,7 @@ export interface ConnectionState {
     connectionId: string | null
 }
 
-export interface ProfileWithConnection extends Pick
+export interface ProfileWithConnection extends Pick<
   Profile,
     'id' | 'full_name' | 'avatar_url' | 'headline' | 'location' | 'username'
         > {

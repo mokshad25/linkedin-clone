@@ -26,7 +26,7 @@ export default async function AdminAnalyticsPage() {
       .select('status')
       .then(({ data }) => {
         const counts: Record<string, number> = {}
-        ;(data ?? []).forEach((a) => {
+        ;(data as { status: string }[] ?? []).forEach((a) => {
           counts[a.status] = (counts[a.status] ?? 0) + 1
         })
         return counts
